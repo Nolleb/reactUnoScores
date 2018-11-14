@@ -1,0 +1,60 @@
+.edit-input{
+
+    padding: 10px;
+    line-height: 1;
+    font-size: 1.2rem;
+    border: 0;
+    border: 2px solid $color-dark-1;
+    border-radius: 0;
+    background: lighten($color-dark-1, 55%);
+    box-shadow: 0 3px 0rem rgba($color-black, .15);
+    appearance: none;
+
+    &:focus {
+      outline: 0;
+      background: lighten($color-validation, 85%);  
+    }
+    &--score {
+        width: 40px;
+        height: 40px;
+        margin: 0;
+        box-shadow: none;
+        padding: 5px;
+    }
+}
+
+.edit-field {
+    display: flex;
+    align-items: center;
+}
+
+.form-container {
+    background: $color-light-3;
+    border-radius: 4px;
+    position: fixed;
+    max-width: 750px;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 21;
+    height: 80vh;
+    box-shadow: 0 1rem 2rem rgba($color-black, .15);
+    border-bottom: 1px solid rgba(0,0,0,.5);
+    
+    &__inner {
+        overflow-y: auto;
+        height: 100%;
+        padding: 10px;
+    }
+    
+    &__content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+    

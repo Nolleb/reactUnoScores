@@ -1,0 +1,54 @@
+.score {
+    display: none;
+    position: relative;
+    &__error {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: -180%;
+        transform: translate(-50%,-50%);
+        font-size: 1.4rem;
+        white-space: nowrap;
+        background: $color-warning;
+        color: $color-white;
+        padding: 5px;
+        border-radius: 4px;
+    }
+}
+.score-all {
+    display: grid;
+    grid-column: span 2;
+    grid-template-columns: 1fr auto;
+    background: lighten($color-dark-2, 20%);
+    margin-top: 10px;
+    .player-edit & {
+        display: none;
+    }
+    &__list {
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        color: $color-white;
+        font-weight: 600;
+    }
+    &__item {
+        font-size: 1.5rem;
+    }
+    &__item:not(:first-child) {
+        padding-left: 5px;
+        padding-right: 5px;
+        border-left: 2px solid $color-white;
+    }
+    &__item:first-child {
+        padding-right: 5px;  
+    }
+    &__item:last-child {
+        padding-right: 0px;  
+    }
+    &__total {
+        font-size: 2rem;
+        padding: 5px;
+        background: $color-warning;
+        color: $color-white;
+    }
+}
