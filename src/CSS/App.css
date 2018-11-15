@@ -205,7 +205,7 @@ body {
   justify-content: center; }
 
 .btn-add-score {
-  display: none; }
+  margin-left: 10px; }
 
 .btn-text:link, .btn-text:visited {
   font-size: 1.6rem;
@@ -299,12 +299,13 @@ body {
 
 .score {
   display: none;
-  position: relative; }
+  position: relative;
+  align-items: center; }
   .score__error {
     display: none;
     position: absolute;
     top: 50%;
-    left: -180%;
+    left: -100%;
     transform: translate(-50%, -50%);
     font-size: 1.4rem;
     white-space: nowrap;

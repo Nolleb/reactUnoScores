@@ -1,11 +1,12 @@
 .score {
     display: none;
     position: relative;
+    align-items: center;
     &__error {
         display: none;
         position: absolute;
         top: 50%;
-        left: -180%;
+        left: -100%;
         transform: translate(-50%,-50%);
         font-size: 1.4rem;
         white-space: nowrap;

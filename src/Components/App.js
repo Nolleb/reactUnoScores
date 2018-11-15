@@ -12,8 +12,7 @@ class App extends Component {
     state = {
         players: [],
         playersNumber: "",
-        isStarted: false,
-        numbers: {}
+        isStarted: false
     };
 
     setPlayer = (nb) => {
@@ -48,30 +47,12 @@ class App extends Component {
         players[id].score.push(score);
         this.setState({players: players});
     }
-    getErrorsFromInput = (id, isNumber) => {
-        console.log(id);
-        console.log(isNumber);
-      
-        const numbers = {...this.state.numbers};
-        
-       // numbers[id].push(isNumber);
-        numbers[id]=isNumber;
-        console.log(numbers);
-        this.setState({numbers: numbers});
-    }
-    displayAllScoresPerTurn = () => {
-        console.log("End turn");
-        const btnClick = document.querySelectorAll('.btn-add-score');
-        const btnClickArr = Array.from(btnClick);
-        
-        btnClickArr.map(el=>el.click());
-        this.orderPlayerByScore();
-    }
+    
     showScores = () => {
         const scores = document.querySelectorAll('.score');
         console.log(scores);
         const scoresArray = Array.from(scores);
-        scoresArray.map(el=>el.style.display="block");
+        scoresArray.map(el=>el.style.display="flex");
         //scores.style.display = "block";
     }
     hidePlayersEditBtns = () => {
@@ -126,12 +107,12 @@ class App extends Component {
                 <div className="list">
                     <div className="list__inner">
                     {Object.keys(this.state.players).map(key=>
-                        <EditFn key={key}>{(isInEditMode, setEditMode) => <PlayerData index={key} key={key} players={this.state.players[key]} updatePlayerName={this.updatePlayerName} deletePlayer={this.deletePlayer} isInEditMode={isInEditMode} setEditMode={setEditMode} isDisabled={this.state.isDisabled} displayScorePerTurn={this.displayScorePerTurn} getErrorsFromInput={this.getErrorsFromInput}/>}</EditFn>        
+                        <EditFn key={key}>{(isInEditMode, setEditMode) => <PlayerData index={key} key={key} players={this.state.players[key]} updatePlayerName={this.updatePlayerName} deletePlayer={this.deletePlayer} isInEditMode={isInEditMode} setEditMode={setEditMode} isDisabled={this.state.isDisabled} displayScorePerTurn={this.displayScorePerTurn}/>}</EditFn>        
                     )}   
                     </div>
                     <button className="btn btn-add-player" onClick={this.addPlayer}>Add Player <AddUser /></button>
                 </div>
-                {(isStarted === false)?buttonStart:<BtnEndTurn displayAllScoresPerTurn={this.displayAllScoresPerTurn}/>}
+                {(isStarted === false)?buttonStart:<BtnEndTurn orderPlayerByScore={this.orderPlayerByScore}/>}
                 
             </div>
             
