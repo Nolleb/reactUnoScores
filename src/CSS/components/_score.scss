@@ -20,7 +20,7 @@
     display: grid;
     grid-column: span 2;
     grid-template-columns: 1fr auto;
-    background: lighten($color-dark-2, 20%);
+    background: $color-dark-2;
     margin-top: 10px;
     .player-edit & {
         display: none;

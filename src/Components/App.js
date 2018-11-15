@@ -94,6 +94,14 @@ class App extends Component {
         console.log("start game");
         this.setState({isStarted: !this.state.isStarted});
     }
+
+    resetGame = () => {
+        console.log('reset');
+        const toggleHeader = document.querySelector('.toggleHeader');
+        toggleHeader.click();
+        this.setState({isStarted: !this.state.isStarted, players: {}, playersNumber:""});
+    }
+
     render() {
         const isStarted = this.state.isStarted;
         const buttonStart=  <div className="btn-start-content"><button className="btn btn-start" onClick={this.startGame}>Start game</button></div>;
@@ -112,7 +120,7 @@ class App extends Component {
                     </div>
                     <button className="btn btn-add-player" onClick={this.addPlayer}>Add Player <AddUser /></button>
                 </div>
-                {(isStarted === false)?buttonStart:<BtnEndTurn orderPlayerByScore={this.orderPlayerByScore}/>}
+                {(isStarted === false)?buttonStart:<BtnEndTurn resetGame={this.resetGame} orderPlayerByScore={this.orderPlayerByScore}/>}
                 
             </div>
             

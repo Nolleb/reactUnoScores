@@ -83,6 +83,9 @@ body {
 li {
   list-style-type: none; }
 
+.hidden {
+  display: none; }
+
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
@@ -152,8 +155,8 @@ body {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 10px 20px, rgba(0, 0, 0, 0.2) 0px 0px 1px; }
 
 .btn {
-  background-color: #f73859;
-  border: 2px solid #f73859;
+  background-color: #EE161F;
+  border: 2px solid #EE161F;
   border: none;
   border-radius: 4px;
   text-align: center;
@@ -166,7 +169,7 @@ body {
   padding: 8px; }
   .btn.active {
     background-color: #fff;
-    border: 2px solid #f73859; }
+    border: 2px solid #EE161F; }
   .btn:hover {
     color: #fff;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15); }
@@ -216,7 +219,7 @@ body {
   transition: all .2s; }
 
 .btn-text:hover {
-  background-color: #f73859;
+  background-color: #EE161F;
   color: #fff;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
   border-radius: 4px;
@@ -289,7 +292,7 @@ body {
     text-decoration: none;
     display: inline-block; }
     .player:nth-child(odd) .player__title {
-      background: #fffcfd; }
+      background: #fcd4d6; }
   .player.player-edit {
     grid-template-columns: 30px 1fr;
     align-items: center; }
@@ -309,7 +312,7 @@ body {
     transform: translate(-50%, -50%);
     font-size: 1.4rem;
     white-space: nowrap;
-    background: #f73859;
+    background: #EE161F;
     color: #fff;
     padding: 5px;
     border-radius: 4px; }
@@ -318,7 +321,7 @@ body {
   display: grid;
   grid-column: span 2;
   grid-template-columns: 1fr auto;
-  background: #777a9f;
+  background: #F8DB22;
   margin-top: 10px; }
   .player-edit .score-all {
     display: none; }
@@ -341,7 +344,7 @@ body {
   .score-all__total {
     font-size: 2rem;
     padding: 5px;
-    background: #f73859;
+    background: #EE161F;
     color: #fff; }
 
 .wrapper {
@@ -360,7 +363,11 @@ body {
     align-items: center;
     justify-content: center; }
   .container-heading {
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    background: #F8DB22; }
   .container-end-turn {
     display: flex;
     justify-content: center;

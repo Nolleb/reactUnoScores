@@ -8,6 +8,10 @@
   }
   &-heading {
     margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    background: $color-dark-2;
   }
   &-end-turn {
     display: flex;
