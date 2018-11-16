@@ -53,3 +53,13 @@
         color: $color-white;
     }
 }
+.score-stars {
+    &__list {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+    }
+    &__item:not(:first-child){
+        margin-left: 5px;
+    }
+}

@@ -4,6 +4,7 @@ import PlayerData from './PlayerData';
 import EditFn from './EditFn';
 import BtnEndTurn from './BtnEndTurn';
 import AddUser from './svg/AddUser';
+import Trophy from './svg/Trophy';
 import '../CSS/App.css';
 
 
@@ -18,7 +19,7 @@ class App extends Component {
     setPlayer = (nb) => {
         const players = [...this.state.players];
         for (let i = 0; i < nb; i++){
-            players.push({name:`player ${i+1} name`, score:[]})
+            players.push({name:`player ${i+1} name`, score:[], star:[]})
         }
         this.setState({players: players, playersNumber: nb});
     };
@@ -28,12 +29,14 @@ class App extends Component {
         players[key].name = name;
         this.setState({players: players});
     }
+    
     deletePlayer = (id) => {
         const players = [...this.state.players];
         players.splice(id, 1);
         const playersNumber = players.length;
         this.setState({players: players, playersNumber: playersNumber});
     }
+
     addPlayer = () => {
         const players = [...this.state.players];
         if(players.length>0){
@@ -42,19 +45,22 @@ class App extends Component {
         const playersNumber = players.length;
         this.setState({players: players, playersNumber: playersNumber});
     }
+
     displayScorePerTurn = (id, score) => {
         const players = [...this.state.players];
         players[id].score.push(score);
+        if(score === -20){
+            players[id].star.push(<Trophy/>);
+        }
         this.setState({players: players});
     }
     
     showScores = () => {
         const scores = document.querySelectorAll('.score');
-        console.log(scores);
         const scoresArray = Array.from(scores);
         scoresArray.map(el=>el.style.display="flex");
-        //scores.style.display = "block";
     }
+
     hidePlayersEditBtns = () => {
         const btnDelete = document.querySelectorAll('.btn-delete');
         const btnDeleteArray = Array.from(btnDelete);
@@ -62,6 +68,7 @@ class App extends Component {
         buttonAddPlayer.style.display='none';
         btnDeleteArray.map(el=>el.style.display="none");
     }
+
     orderPlayerByScore = () => {
         const players = this.state.players;
         const mapped = players.map(function(e, i) {
@@ -81,6 +88,7 @@ class App extends Component {
         });
         this.setState({players: result});
     }
+
     changeStructurePlayer = () => {
         const players = document.querySelectorAll('.player');
         const playersArr = Array.from(players);
@@ -115,7 +123,7 @@ class App extends Component {
                 <div className="list">
                     <div className="list__inner">
                     {Object.keys(this.state.players).map(key=>
-                        <EditFn key={key}>{(isInEditMode, setEditMode) => <PlayerData index={key} key={key} players={this.state.players[key]} updatePlayerName={this.updatePlayerName} deletePlayer={this.deletePlayer} isInEditMode={isInEditMode} setEditMode={setEditMode} isDisabled={this.state.isDisabled} displayScorePerTurn={this.displayScorePerTurn}/>}</EditFn>        
+                        <EditFn key={key}>{(isInEditMode, setEditMode) => <PlayerData index={key} key={key} players={this.state.players[key]} updatePlayerName={this.updatePlayerName} deletePlayer={this.deletePlayer} isInEditMode={isInEditMode} setEditMode={setEditMode} displayScorePerTurn={this.displayScorePerTurn}/>}</EditFn>        
                     )}   
                     </div>
                     <button className="btn btn-add-player" onClick={this.addPlayer}>Add Player <AddUser /></button>

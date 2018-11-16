@@ -2,6 +2,7 @@ import React from 'react';
 import Validate from './svg/Validate';
 
 class EditScoreInput extends React.Component{
+   
     addScoreToPlayer = (event) => {
         const score = this.refs.editScoreInput.value;
         const error = event.currentTarget.parentNode.firstChild;

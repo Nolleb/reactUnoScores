@@ -347,6 +347,14 @@ body {
     background: #EE161F;
     color: #fff; }
 
+.score-stars__list {
+  display: flex;
+  align-items: center;
+  margin-left: 10px; }
+
+.score-stars__item:not(:first-child) {
+  margin-left: 5px; }
+
 .wrapper {
   max-width: 1180px;
   width: 100%;
